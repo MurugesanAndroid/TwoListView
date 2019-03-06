@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -77,6 +78,20 @@ public class MainActivity extends AppCompatActivity {
             final View first_view = inflater.inflate(R.layout.first_single_item, null);
             TextView one= first_view.findViewById(R.id.txt_one);
             one.setText("");
+
+            /*
+            set here positioon
+             */
+            one.setTag(i);
+
+            first_view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = Integer.parseInt(v.getTag().toString());
+                    Toast.makeText(MainActivity.this, Integer.toString(position), Toast.LENGTH_SHORT).show();
+                }
+            });
+
             layout_one.addView(first_view);
         }
 
